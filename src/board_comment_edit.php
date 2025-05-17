@@ -37,7 +37,7 @@ if (!$row || $_SESSION['user_name'] != $row['id'])
         <input type="hidden" name="comment_number" value="<?= $comment_number?>">
         <input type="hidden" name="board_number" value="<?= $board_number?>">
         <textarea name="content" maxlength="100"><?= htmlspecialchars($row['content']) ?></textarea>
-        <a href="board_view.php?number=<?=$board_number?>">취소</a>
+        <a href="board_view.php?number=<?=$board_number?>" class="button">취소</a>
         <input type="submit" value="수정">
         
     </form>

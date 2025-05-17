@@ -35,7 +35,7 @@ if ($_SESSION['user_name'] != $row['id']){
         <h3>내용을 입력해 주세요.</h3>
         <textarea name="content"><?php echo htmlspecialchars($row['content']);?></textarea><br>
         <?php if (!empty($row['file_name'])): ?>
-            <p>현재 첨부파일: <a href="<?= $row['file_path'] ?>" download><?= htmlspecialchars($row['file_name']) ?></a></p>
+            <p>현재 첨부파일: <a href="<?= $row['file_path'] ?>" class="button" download><?= htmlspecialchars($row['file_name']) ?></a></p>
             <label><input type="checkbox" name="delete_file" value="1"> 첨부파일 삭제</label><br>
         <?php endif; ?>
         <h3>새 파일 업로드</h3>
