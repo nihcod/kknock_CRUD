@@ -1,0 +1,96 @@
+body {
+    background-color: #188395;
+    color: #fff;
+    font-family: 'Pretendard', sans-serif;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    max-width: 80%;
+    margin: 5px 0;
+}
+
+input[type="submit"], button, a.button {
+    background-color: #4d4d4d;
+    color: #fff;
+    padding: 10px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover, button:hover, a.button:hover {
+    background-color: #666;
+}
+
+.board-list {
+    list-style: decimal;
+    padding: 0;
+    margin: 30px auto;
+    width: fit-content;
+}
+
+.board-list li {
+    margin-bottom: 12px;
+}
+
+.btn-group {
+    margin: 20px;
+}
+
+.comment-box {
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+.board-list {
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.board-list li {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.board-list .list-link {
+    padding: 6px 14px;
+    background-color: #444;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+.board-list .list-link:hover {
+    background-color: #666;
+}
