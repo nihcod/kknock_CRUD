@@ -1,96 +1,937 @@
+/* --- 네이비톤 공통 스타일 (style.css에 추가) --- */
+
+/* 전체 배경과 기본 텍스트 */
 body {
-    background-color: #188395;
-    color: #fff;
-    font-family: 'Pretendard', sans-serif;
-    text-align: center;
+  background-color: #001f3f;    /* 진한 네이비 */
+  color: #f0f0f5;               /* 연한 아이보리 */
+  font-family: 'Noto Sans KR', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* 중앙 정렬된 컨테이너 */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #002b60;    /* 약간 밝은 네이비 */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* 제목 */
+.container h1,
+.container h2 {
+  text-align: center;
+  color: #e0e7ff;               /* 연한 블루 */
+  margin-bottom: 20px;
+}
+
+/* 버튼 공통 */
+.button {
+  display: inline-block;
+  background-color: #003f8a;    /* 중간 네이비 */
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+.button:hover {
+  background-color: #0050b3;    /* 하이라이트 네이비 */
+}
+
+/* 입력폼, 텍스트영역 */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #0050b3;
+  border-radius: 6px;
+  background-color: #013166;
+  color: #eef2ff;
+  font-size: 1rem;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #9bb8e8;
+}
+
+/* 폼 제출 버튼 */
+button.submit {
+  background-color: #0060d0;
+}
+button.submit:hover {
+  background-color: #0077ff;
+}
+
+/* 링크 스타일 */
 a {
-    text-decoration: none;
-    color: #fff;
+  color: #a8c4ff;
+}
+a:hover {
+  color: #e0e7ff;
 }
 
-h1 {
-    font-size: 2rem;
-    margin: 20px 0;
+/* 에러/알림 텍스트 */
+.alert {
+  background-color: #b30000;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+/* container 내부 요소 중앙 정렬 */
+.container {
+  text-align: center;
 }
 
-textarea, input[type="text"], input[type="email"], input[type="password"], input[type="file"] {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    width: 300px;
-    max-width: 80%;
-    margin: 5px 0;
+/* 버튼들(링크 포함)을 inline-block으로, 사이 여백 주기 */
+.button,
+button.submit {
+  display: inline-block;
+  margin: 0.5em;
+}
+/* --- form 중앙 정렬 --- */
+.container {
+  text-align: center;  /* form을 포함한 모든 블록 요소를 중앙에 배치 */
 }
 
-input[type="submit"], button, a.button {
-    background-color: #4d4d4d;
-    color: #fff;
-    padding: 10px 16px;
-    margin: 5px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    display: inline-block;
-    transition: background-color 0.3s ease;
+.container form {
+  display: inline-block;  /* form 자체를 inline-block으로 만들어 텍스트 정렬(center)에 걸리게 함 */
+  text-align: left;       /* 폼 내부 라벨·입력은 왼쪽 정렬 */
+  margin-top: 1.5em;
+  /* max-width를 지정하면 너무 길게 늘어나지 않습니다 */
+  max-width: 360px;
+  width: 100%;
 }
 
-input[type="submit"]:hover, button:hover, a.button:hover {
-    background-color: #666;
+/* 입력칸 너비 조절(옵션) */
+.container form input,
+.container form textarea {
+  width: 100%;            /* form 최대 너비에 맞게 늘어남 */
+}
+/* ── 공통: 컨테이너 내부를 수직으로 쌓고 가운데 정렬 ── */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* 자식 요소 가로 중앙 정렬 */
+  text-align: left;           /* 내부 텍스트는 왼쪽 정렬 유지 */
 }
 
-.board-list {
-    list-style: decimal;
-    padding: 0;
-    margin: 30px auto;
-    width: fit-content;
+/* ── 폼 영역: 최대 너비, 세로 스택 ── */
+.container form {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;                   /* 입력칸 사이 간격 */
+  margin-top: 1em;
 }
 
-.board-list li {
-    margin-bottom: 12px;
+/* 입력창은 폼 너비 100% 꽉 채우기 */
+.container form input,
+.container form textarea {
+  width: 100%;
 }
 
+/* ── 폼 내 버튼(로그인, 가입하기) 중앙 정렬 ── */
+.container form button.submit,
+.container form .button {
+  align-self: center;         /* 버튼만 가로 중앙 배치 */
+  margin-top: 0.5em;
+}
+
+/* ── 컨테이너 직속 버튼(홈으로, 회원가입 링크 등) 중앙화 ── */
+.container > .button {
+  display: inline-block;
+  margin: 1em auto;
+}
+/* ── 로그인·회원가입 페이지: form 중앙정렬 ── */
+form {
+  width: 100%;
+  max-width: 360px;     /* 원하는 최대 너비 */
+  margin: 2rem auto;    /* 상하 여백 2rem + 좌우 auto로 가로 중앙 */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;            /* 폼 요소 간격 */
+}
+
+/* 제목만 가운데 정렬 */
+form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* 라벨과 입력은 풀폭, 기존 스타일 유지 */
+form label,
+form input,
+form textarea {
+  width: 100%;
+}
+
+/* 버튼·회원가입 링크도 중앙에 붙이기 */
+form .button,
+form button {
+  align-self: center;   /* 버튼별로 중앙 */
+  margin-top: 0.5rem;
+}
+/* ── 홈 페이지 전체 중앙 정렬 ── */
+body {
+  display: flex;                   /* Flex 컨테이너로 전환 */
+  flex-direction: column;          /* 세로 방향 스택 */
+  align-items: center;             /* 가로 중앙 정렬 */
+  text-align: center;              /* 텍스트 중앙 정렬 */
+  padding: 2rem 1rem;              /* 상하 여백 */
+  margin: 0;
+  min-height: 100vh;               /* 세로 전체 높이 확보(선택) */
+  box-sizing: border-box;
+}
+
+body h1,
+body a.button {
+  margin: 1rem 0;                  /* 요소 간 간격 */
+}
+
+/* 버튼 너비 자동, 중앙 정렬 */
+body a.button {
+  width: auto;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+}
+/* ── 공통 컨테이너 정렬 ── */
+.board-container,
+.btn-group,
+ul.notice-list,
+ul.board-list,
+form {
+  width: 85%;
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 버튼 그룹은 가로로 */
 .btn-group {
-    margin: 20px;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
 }
 
+/* 리스트 박스 스타일 */
+ul.notice-list,
+ul.board-list {
+  background: #022c5b;
+  border-radius: 8px;
+  padding: 1.5rem;
+  list-style: none;
+}
+
+ul.notice-list h2,
+ul.board-list h2 {
+  color: #a8d0e6;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* 목록 항목 */
+ul.notice-list li,
+ul.board-list li {
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+ul.notice-list .list-link,
+ul.board-list .list-link {
+  display: block;
+  background: #044273;
+  color: #e0e7ff;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+ul.notice-list .list-link:hover,
+ul.board-list .list-link:hover {
+  background: #055295;
+}
+
+/* 더보기 링크 */
+.more-link {
+  margin-bottom: 2rem;
+}
+.more-link a {
+  color: #a8d0e6;
+  text-decoration: underline;
+}
+
+/* 글쓰기/수정 폼 스타일 */
+form {
+  gap: 1rem;
+}
+form h3 {
+  color: #a8d0e6;
+  align-self: flex-start;
+}
+form input[type="text"],
+form textarea,
+form input[type="file"] {
+  width: 100%;
+  background: #013166;
+  border: 1px solid #044273;
+  border-radius: 6px;
+  color: #eef2ff;
+  padding: 0.75rem;
+}
+form input[type="submit"],
+form .button {
+  background: #003f8a;
+  align-self: center;
+  padding: 0.75rem 1.5rem;
+}
+form input[type="submit"]:hover,
+form .button:hover {
+  background: #0050b3;
+}
+
+/* 댓글 박스(.comment-box) 활용(인라인 스타일 대체) */
 .comment-box {
-    background: #fff;
-    color: #000;
-    border-radius: 10px;
-    padding: 20px;
-    width: 400px;
-    margin: 0 auto;
+  background: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+/* ── 1. board_main (게시판 메인) ── */
+
+/* ── 2. board_view (글 보기) ── */
+.board-view {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #022c5b;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.board-view h1 {
+  color: #e0e7ff;
+  margin-bottom: 1rem;
+}
+.board-view .meta {
+  color: #a8d0e6;
+  margin: 0.5rem 0;
+}
+.board-view .content {
+  background: #013166;
+  border-radius: 6px;
+  padding: 1rem;
+  color: #eef2ff;
+  text-align: left;
+  margin: 1.5rem 0;
+}
+/* 댓글 폼 */
+.board-view .comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.board-view .comment-form textarea {
+  height: 6rem;
+  border-radius: 6px;
+  border: 1px solid #044273;
+  background: #013166;
+  color: #eef2ff;
+  padding: 0.75rem;
+}
+.board-view .comment-form button {
+  align-self: flex-end;
+  background: #003f8a;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.board-view .comment-form button:hover {
+  background: #0050b3;
+}
+/* 댓글 리스트 */
+.comment-list .comment {
+  background: #013166;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: #eef2ff;
+  text-align: left;
+}
+.comment-list .comment .actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.comment-list .comment .actions button {
+  flex: 1;
+  background: #003f8a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  transition: background 0.2s;
+}
+.comment-list .comment .actions button:hover {
+  background: #0050b3;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 20px 0;
+/* ── 3. board_edit (글 수정) ── */
+.board-edit {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #022c5b;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
+.board-edit h2 {
+  color: #e0e7ff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.board-edit form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.board-edit form input[type="text"],
+.board-edit form textarea,
+.board-edit form input[type="file"] {
+  background: #013166;
+  border: 1px solid #044273;
+  border-radius: 6px;
+  color: #eef2ff;
+  padding: 0.75rem;
+}
+.board-edit form .actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.board-edit form .actions button,
+.board-edit form .actions input[type="submit"] {
+  background: #003f8a;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.board-edit form .actions button:hover,
+.board-edit form .actions input[type="submit"]:hover {
+  background: #0050b3;
+}
+/* ── board_main: 두 칼럼 그리드, 더 넓게 ── */
+
+
+/* ── board_view: 카드 넓히고, 댓글 폼 & 버튼 깔끔하게 ── */
+.board-view {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #022c5b;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.board-view .content {
+  max-width: 800px;
+  margin: 1.5rem auto;
+  background: #013166;
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: left;
+  color: #eef2ff;
+}
+.board-view .comment-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.board-view .comment-form textarea {
+  height: 5rem;
+}
+.board-view .comment-form button {
+  width: 8rem;
+  align-self: flex-end;
+}
+
+/* 댓글 리스트 */
+.comment-list .comment {
+  max-width: 700px;
+  margin: 1rem auto;
+  background: #013166;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #eef2ff;
+  position: relative;
+}
+.comment-list .comment .actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.comment-list .comment .actions a,
+.comment-list .comment .actions button {
+  flex: 1;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* ── board_edit: 카드 넓히고 버튼 정리 ── */
+.board-edit {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #022c5b;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.board-edit form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.board-edit .actions {
+  justify-content: center;
+  gap: 1rem;
+}
+.board-edit .actions button,
+.board-edit .actions input {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+/* ── 공통 버튼 스타일 ── */
+.button,
+button,
+input[type="submit"] {
+  background: #003f8a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #0050b3;
+}
+/* ── board_main: 칼럼 + 중앙 헤더 ── */
+.board-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.more-link .button.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* ── board_view: 카드 넓히기 + 내부 래핑 ── */
+.board-view {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: #022c5b;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-align: center;
+}
+.board-view .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #a8d0e6;
+  margin-bottom: 1rem;
+}
+.board-view .post-content {
+  background: #013166;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  text-align: middle;
+  color: #eef2ff;
+}
+.board-view .comment-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.board-view .comment-form textarea {
+  height: 5rem;
+  border-radius: 6px;
+  border: 1px solid #044273;
+}
+.board-view .comment-form button {
+  align-self: flex-end;
+  width: 6rem;
+}
+
+/* 댓글 리스트 */
+.comment-list {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+.comment-list h3 {
+  color: #e0e7ff;
+  margin-bottom: 0.5rem;
+}
+.comment-list .comment {
+  background: #013166;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #eef2ff;
+}
+.comment-list .comment .meta {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.comment-list .comment .text {
+  margin-bottom: 1rem;
+}
+.comment-list .comment .actions {
+  display: flex;
+  gap: 1rem;
+}
+.comment-list .comment .actions .button.small {
+  flex: 1;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* ── board_edit: 카드 + 버튼 간격 ── */
+.board-edit {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #022c5b;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.board-edit h2 {
+  color: #e0e7ff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.board-edit form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.board-edit form input[type="text"],
+.board-edit form textarea,
+.board-edit form input[type="file"] {
+  background: #013166;
+  border: 1px solid #044273;
+  border-radius: 6px;
+  color: #eef2ff;
+  padding: 0.75rem;
+}
+.board-edit .actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ── 공통 버튼 ── */
+.button,
+button,
+input[type="submit"] {
+  background: #003f8a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover {
+  background: #0050b3;
+}
+/* ── board_main 전용 스타일 ── */
+.board-main {
+  display: grid;
+  /* 380px 이상이면 2열, 아니면 1열 */
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;                     /* 칼럼 사이 간격 */
+  max-width: 1200px;             /* 전체 최대 너비 */
+  margin: 2rem auto;             /* 화면 중앙 배치 */
+  padding: 1.5rem;               /* 가장자리 여백 */
+  background: #022c5b;           /* 전체 배경 카드 */
+  border-radius: 8px;            /* 전체 둥글게 */
+  position: relative;
+}
+
+/* 헤더: 제목은 가운데, 버튼은 우측 */
+
+/* 리스트 아이템 */
+.notice-list,
 .board-list {
-    list-style-position: inside;
-    padding: 0;
-    margin-top: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
+.notice-list li,
 .board-list li {
-    margin-bottom: 8px;
-    font-size: 18px;
+  margin-bottom: 0.75rem;
+}
+.list-link {
+  display: block;
+  background: #044273;
+  color: #eef2ff;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.list-link:hover {
+  background: #055295;
 }
 
-.board-list .list-link {
-    padding: 6px 14px;
-    background-color: #444;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.2s;
+/* 더보기 버튼 */
+.more-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+.more-link .button.small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+}
+/* ── board_main 전용 스타일 ── */
+.board-main {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #022c5b;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
 }
 
-.board-list .list-link:hover {
-    background-color: #666;
+
+
+.notice-section,
+.board-section {
+  background: #013166;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.notice-section { border-right: 2px solid #044273; }
+.board-section  { border-left:  2px solid #044273; }
+
+.notice-section h2,
+.board-section h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  color: #e0e7ff;
+  margin-bottom: 1rem;
+}
+
+/* 더보기 버튼 우측 정렬 */
+.more-link {
+  text-align: right;
+  margin-top: 1rem;
+}
+.more-link .button.small {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  background: #003f8a;
+}
+.more-link .button.small:hover {
+  background: #0050b3;
+}
+/* ── board_main 헤더: 제목 중앙, 버튼 우측 고정 ── */
+.board-main {
+  position: relative;       /* 헤더 안에서 절대 위치 지정용 */
+}
+
+/* ── board_main 헤더 최종 스타일 ── */
+.board-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #022c5b;
+  border-radius: 8px;
+}
+
+.board-main .main-header {
+  /* grid 전체를 가로지르며, 내부 배치 제어 */
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;          /* 수직 중앙 */
+  justify-content: center;      /* 제목은 가운데 */
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #044273;
+  width: 100%;
+  position: relative;           /* 버튼 위치 기준 */
+}
+
+.board-main .main-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #e0e7ff;
+  white-space: nowrap;          /* 절대 줄바꿈 금지 */
+}
+
+.board-main .main-header .btn-group {
+  position: absolute;           /* .main-header 를 기준으로 */
+  top: 20%;                     
+  right: -10.0rem;                
+  transform: translateY(-70%);  /* 수직 중앙 */
+  display: flex;
+  gap: 0.5rem;
+}
+
+.board-main .main-header .btn-group .button {
+  padding: 0.6rem 0.6rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ── board_view 전용 컨테이너 확장 ── */
+.container.board-view {
+  /* flex 가운데 정렬을 풀고 block으로 전환 */
+  display: block !important;
+
+  /* 원하는 최대 너비로 늘리고, 화면 여백 주기 */
+  max-width: 900px !important;
+  width: 90% !important;
+  margin: 2rem auto !important;
+
+  /* 배경·패딩·둥글게 등 기존 .board-view 스타일도 필요하다면 여기에 추가 */
+  padding: 2rem !important;
+  background: #022c5b !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  box-sizing: border-box !important;
+}
+.container.board_view {
+  /* flex 가운데 정렬을 풀고 block으로 전환 */
+  display: block !important;
+
+  /* 원하는 최대 너비로 늘리고, 화면 여백 주기 */
+  max-width: 900px !important;
+  width: 90% !important;
+  margin: 2rem auto !important;
+
+  /* 배경·패딩·둥글게 등 기존 .board-view 스타일도 필요하다면 여기에 추가 */
+  padding: 2rem !important;
+  background: #022c5b !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  box-sizing: border-box !important;
+}
+/* ── 공통 버튼 그룹 ── */
+body > .btn-group {
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* ── 공통 버튼 스타일 ── */
+.button {
+  background: #003f8a;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.button:hover {
+  background: #0050b3;
+}
+
+/* ── 공통 리스트 카드 ── */
+ul.notice-list,
+ul.board-list {
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 2rem;
+  background: #022c5b;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  list-style: none;
+}
+
+/* 섹션 제목 */
+ul.notice-list h2,
+ul.board-list h2 {
+  text-align: center;
+  color: #e0e7ff;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 리스트 항목 */
+.notice-list li,
+.board-list li {
+  margin-bottom: 1rem;
+}
+.list-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  background: #044273;
+  color: #eef2ff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.list-link:hover {
+  background: #055295;
+}
+/* notice_list.php 전용 컨테이너 너비 조정 */
+.container.notice-list-page {
+  max-width: 1000px;   /* 필요에 따라 1200px, 90% 등으로 조절 */
+  width: 90%;          /* 화면 대비 90% 너비 */
+  margin: 2rem auto;   /* 위아래 2rem, 좌우 중앙 정렬 */
+  /* display:flex 가 필요 없으면 block 으로 다시 맞춰 줍니다. */
+  display: block;
+}
+.container.board-list-page {
+  max-width: 1000px;   /* 필요에 따라 1200px, 90% 등으로 조절 */
+  width: 90%;          /* 화면 대비 90% 너비 */
+  margin: 2rem auto;   /* 위아래 2rem, 좌우 중앙 정렬 */
+  /* display:flex 가 필요 없으면 block 으로 다시 맞춰 줍니다. */
+  display: block;
 }

@@ -21,7 +21,7 @@
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
     if(!$row){
-        header("Location: board_main.php");
+        header("Location: board_list.php");
     }
 
     $sql2 = "SELECT * FROM comment WHERE board_number = ? ORDER BY attime ASC";
@@ -40,17 +40,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container board-view">
     <h1><?php echo htmlspecialchars($row['title']);?></h1>
-    <p><strong>작성자 : </strong><?php echo htmlspecialchars($row['id']);?></p>
-    <p><strong>작성시각 : </strong><?php echo $row['attime'];?></p>
-    
-    <?php if ($row['attime'] != $row['fixattime']):?>
-        <p>최종 수정시각 : <?php echo $row['fixattime'];?></p>
-    <?php endif;?>
+        <div class="meta">
+        <p><strong>작성자 : </strong><?php echo htmlspecialchars($row['id']);?></p>
+        <p><strong>작성시각 : </strong><?php echo $row['attime'];?></p>
+        
+        <?php if ($row['attime'] != $row['fixattime']):?>
+            <p>최종 수정시각 : <?php echo $row['fixattime'];?></p>
+        <?php endif;?>
+    </div>
 
-    <hr>
-    <p><?php echo nl2br(htmlspecialchars($row['content']));?></p>
-    <hr>
+    <div class="post-content">
+        <?php echo nl2br(htmlspecialchars($row['content']));?>
+    </div>
     <?php if (isset($row['file_name']) && isset($row['file_path'])): ?>
         <p><strong>첨부파일</strong></p>
         <a href="<?= htmlspecialchars($row['file_path'])?>" class="button"
@@ -58,6 +61,7 @@
             <?= htmlspecialchars($row['file_name'])?></a>
         <hr>
     <?php endif; ?>
+    
     <p><strong>댓글 목록</strong></p>
     
     <?php
@@ -98,5 +102,6 @@
         <br><a href="board_delete.php?number=<?php echo $row['number']; ?>"
                     class="button" onclick="return confirm('정말 삭제 하시겠습니까?');">삭제하기</a>
     <?php endif;?>
+</div>
 </body>
 </html>

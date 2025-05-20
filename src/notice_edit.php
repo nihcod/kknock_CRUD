@@ -6,7 +6,7 @@ if (!isset($_GET['number'])){
     exit();
 }
 $number = $_GET['number'];
-$sql = "SELECT * FROM Board WHERE number=?";
+$sql = "SELECT * FROM Notice WHERE number=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $number);
 $stmt->execute();
@@ -14,8 +14,8 @@ $result=$stmt->get_result();
 $row=$result->fetch_assoc();
 
 //TODO 세션 검증 추가
-if ($_SESSION['user_name'] != $row['id']){
-    header('Location: board_main.php');
+if ($_SESSION['user_name'] != 'admin'){
+    header('Location: notice_list.php');
     exit();
 }
 ?>
@@ -28,12 +28,12 @@ if ($_SESSION['user_name'] != $row['id']){
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container board-edit">
-    <form method="post" action="board_update.php" enctype="multipart/form-data">
+<div class="container board_edit">
+    <form method="post" action="notice_update.php" enctype="multipart/form-data">
         <input type="hidden" name="number" value="<?php echo $row['number'];?>"/>
-        <h3>글 제목</h3>
+        <h3>공지사항 제목</h3>
         <input type="text" name="title" value="<?php echo htmlspecialchars($row['title']);?>"></d><br>
-        <h3>내용을 입력해 주세요.</h3>
+        <h3>공지내용을 입력해 주세요.</h3>
         <textarea name="content"><?php echo htmlspecialchars($row['content']);?></textarea><br>
         <?php if (!empty($row['file_name'])): ?>
             <p>현재 첨부파일: <a href="<?= $row['file_path'] ?>" class="button" download><?= htmlspecialchars($row['file_name']) ?></a></p>
@@ -41,9 +41,9 @@ if ($_SESSION['user_name'] != $row['id']){
         <?php endif; ?>
         <h3>새 파일 업로드</h3>
         <input type="file" name="upload_file"><br><br>
-        <a href="board_main.php" class="button">취소</a>
+        <a href="notice_list.php" class="button">취소</a>
         <input type="submit" value="수정">
     </form>
-    </div>
+</div>
 </body>
 </html>

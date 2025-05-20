@@ -26,7 +26,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])){
         <label>Password</label>
         <input type="password" name="password" placeholder="Password"><br>
 
-        <button type="submit">로그인</button>
+        <button type="submit" class="button">로그인</button>
           <a href="register.php" class="button">회원 가입</a>
      </form>
 </body>

@@ -6,7 +6,7 @@
 </head>
 <body>
      <form action="register_check.php" method="post">
-        <h2>SIGN UP</h2>
+        <h2>회원 가입</h2>
         <?php if (isset($_GET['error'])) { ?>
                 <p class="error"><?php echo $_GET['error']; ?></p>
         <?php } ?>
@@ -49,7 +49,7 @@
                  name="copassword" 
                  placeholder="Confirm Password"><br>
 
-        <button type="submit">가입하기</button>
+        <button type="submit" class="button">가입하기</button>
           <a href="index.php" class="button">이미 가입 되어 있으신가요?</a>
      </form>
 </body>
