@@ -70,7 +70,7 @@ if (isset($_POST['name']) && isset($_POST['email'])
                         header("Location: register.php?error=The username is taken try another&$user_data");
                 exit();
                 }else {
-           $sql2 = "INSERT INTO users(email, password, name) VALUES(?, ?, ?)";
+           $sql2 = "INSERT INTO users(email, password, name, attime) VALUES(?, ?, ?, NOW())";
            $stmt2 = $conn->prepare($sql2);
            $stmt2->bind_param("sss", $email, $password, $name);
            $res2 = $stmt2->execute();

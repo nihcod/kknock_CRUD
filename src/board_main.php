@@ -21,6 +21,7 @@ include "dbconn.php";
             <div class="btn-group">
                 <a href="home.php"   class="button">홈으로</a>
                 <a href="logout.php" class="button">로그아웃</a>
+                <?php echo "<a href=\"#\" class=\"button\" onclick=\"window.open('find_user.php?username={$_SESSION['id']}', 'Find user', 'width=600,height=400'); return false;\" >유저 검색</a>"; ?>
             </div>
         </div>
 
