@@ -27,6 +27,7 @@ $row = mysqli_fetch_assoc($result);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유저 정보 검색</title>
 </head>
@@ -53,11 +54,11 @@ $row = mysqli_fetch_assoc($result);
         input.placeholder = selected === "username" ? "유저 이름을 입력하세요" : "이메일 주소를 입력하세요";
     }
     </script>
-    <h3>username</h3><hr>
+    <h3><strong>username</strong></h3>
     <?php echo "{$row['name']}"; ?>
-    <h3>email</h3><hr>
+    <h3><strong>email</strong></h3>
     <?php echo "{$row['email']}"; ?>
-    <h3>가입 한 날짜</h3><hr>
+    <h3><strong>가입 한 날짜</strong></h3>
     <?php echo "{$row['attime']}" ?>
 </body>
 </html>
