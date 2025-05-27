@@ -9,7 +9,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	   return $data;
 	}
 	function basic_filter($input) {
-		// low 필터링
+		// low level filtering
 		return preg_match("/(--|#|\/\*|\*\/|\bor\b|\band\b|\bunion\b)/i", $input);
 	}
 	$email = validate($_POST['email']);
@@ -27,7 +27,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
         
 		// vuln here ~~ //
-	
+		// find the admin's email first!! //
 	if (empty($email)){
 		header("Location: index.php?error=이메일을 입력해주세요.");
 		exit();
@@ -48,7 +48,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 		if ($row) {
             	$_SESSION['id'] = $row['email'];
             	$_SESSION['user_name'] = $row['name'];
-            	//$_SESSION['id'] = $row['id'];
             	header("Location: home.php");
 		        exit();
 		}else{

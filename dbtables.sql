@@ -12,7 +12,8 @@ CREATE TABLE Board (
 CREATE TABLE users(
     name VARCHAR(20) NOT NULL,
     email VARCHAR(50) PRIMARY KEY NOT NULL,
-    password VARCHAR(20) NOT NULL
+    password VARCHAR(20) NOT NULL,
+    attime datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE comment(

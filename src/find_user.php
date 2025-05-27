@@ -28,7 +28,7 @@ $row = mysqli_fetch_assoc($result);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유저 정보 검색 창</title>
+    <title>유저 정보 검색</title>
 </head>
 <body>
     <h2>유저 정보</h2>
@@ -37,7 +37,7 @@ $row = mysqli_fetch_assoc($result);
         <option value="username">username</option>
         <option value="email">email</option>
     </select>
-    <input type="text" id="searchInput" name="username" placeholder="유저의 이름 혹은 이메일">
+    <input type="text" id="searchInput" name="username" placeholder="유저 이름을 입력하세요">
     <input type="submit" value="검색">
     </form>
 
@@ -46,10 +46,10 @@ $row = mysqli_fetch_assoc($result);
         const select = document.getElementById("searchType");
         const input = document.getElementById("searchInput");
 
-        const selected = select.value; // 'username' 또는 'email'
+        const selected = select.value;
         input.name = selected;
 
-        // 선택에 따라 placeholder도 같이 바꾸고 싶다면:
+        
         input.placeholder = selected === "username" ? "유저 이름을 입력하세요" : "이메일 주소를 입력하세요";
     }
     </script>

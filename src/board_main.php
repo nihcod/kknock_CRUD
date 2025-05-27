@@ -40,7 +40,7 @@ include "dbconn.php";
                 ?>
             </ul>
             <div class="more-link">
-                <a href="notice_list.php" class="button small">더보기</a>
+                <a href="notice_list.php?order=desc" class="button small">더보기</a>
             </div>
         </section>
 
@@ -59,7 +59,7 @@ include "dbconn.php";
                 ?>
             </ul>
             <div class="more-link">
-                <a href="board_list.php" class="button small">더보기</a>
+                <a href="board_list.php?order=desc" class="button small">더보기</a>
             </div>
         </section>
     </div>
