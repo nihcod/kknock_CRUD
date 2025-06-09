@@ -73,7 +73,7 @@
                 echo "<p><strong>수정 시각:</strong> " . $row2['fixattime'] . "</p>";
             }
             echo "<p>" . nl2br(htmlspecialchars($row2['content'])) . "</p>";
-            if ($_SESSION['user_name'] == $row2['id']) {
+            if ($_SESSION['user_name'] == $row2['id'] || $_SESSION['user_name'] == 'admin') {
             echo '<form action="board_comment_edit.php" method="get" style="display:inline;">
             <input type="hidden" name="comment_number" value="' . $row2['number'] . '">
             <input type="hidden" name="board_number" value="' . $row['number'] . '">
@@ -96,7 +96,7 @@
         <textarea name="content" maxlength="100" placeholder="댓글 입력(최대 100자)" rows="5"></textarea>
         <input type="submit" value="댓글 작성"/>
     </form>
-    <br><a href="board_main.php" class="button">목록으로</a>
+    <br><a href="board_list.php" class="button">목록으로</a>
     <?php if ($_SESSION['user_name'] == $row['id'] || $_SESSION['user_name'] == 'admin'):?>
         <br><a href="board_edit.php?number=<?php echo $row['number'];?>" class="button">수정하기</a>
         <br><a href="board_delete.php?number=<?php echo $row['number']; ?>"

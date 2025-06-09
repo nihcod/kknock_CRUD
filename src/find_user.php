@@ -54,11 +54,15 @@ $row = mysqli_fetch_assoc($result);
         input.placeholder = selected === "username" ? "유저 이름을 입력하세요" : "이메일 주소를 입력하세요";
     }
     </script>
-    <h3><strong>username</strong></h3>
-    <?php echo "{$row['name']}"; ?>
-    <h3><strong>email</strong></h3>
-    <?php echo "{$row['email']}"; ?>
-    <h3><strong>가입 한 날짜</strong></h3>
-    <?php echo "{$row['attime']}" ?>
+    <?php if ($row): ?>
+        <h3><strong>username</strong></h3>
+        <?php echo htmlspecialchars($row['name']); ?>
+        <h3><strong>email</strong></h3>
+        <?php echo htmlspecialchars($row['email']); ?>
+        <h3><strong>가입 한 날짜</strong></h3>
+        <?php echo htmlspecialchars($row['attime']); ?>
+    <?php else: ?>
+        <p style="color: red;"><strong>유저가 존재하지 않습니다.</strong></p>
+    <?php endif; ?>
 </body>
 </html>

@@ -22,17 +22,21 @@ $stmt->execute();
 $result=$stmt->get_result();
 $row = $result->fetch_assoc();
 
-if (!$row || $_SESSION['user_name'] != $row['id'])
+
+if ($_SESSION['user_name'] == $row['id'] || $_SESSION['user_name'] == 'admin')
+{
+    $sql2 = "DELETE FROM comment WHERE number=?";
+    $stmt2=$conn->prepare($sql2);
+    $stmt2->bind_param("i", $comment_number);
+    $stmt2->execute();
+
+    header("Location: board_view.php?number=$board_number");
+    exit();
+}
+else if (!$row || $_SESSION['user_name'] != $row['id'])
 {
     header("Location: board_view.php?number=$board_number");
     exit();
 }
-$sql2 = "DELETE FROM comment WHERE number=?";
-$stmt2=$conn->prepare($sql2);
-$stmt2->bind_param("i", $comment_number);
-$stmt2->execute();
-
-header("Location: board_view.php?number=$board_number");
-exit();
 
 ?>

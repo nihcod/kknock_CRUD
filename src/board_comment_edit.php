@@ -30,6 +30,7 @@ if (!$row || $_SESSION['user_name'] != $row['id'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>댓글 수정</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h2>댓글 수정</h2>

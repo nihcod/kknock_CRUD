@@ -41,7 +41,7 @@ if ($_SESSION['user_name'] != $row['id']){
         <?php endif; ?>
         <h3>새 파일 업로드</h3>
         <input type="file" name="upload_file"><br><br>
-        <a href="board_main.php" class="button">취소</a>
+        <a href="board_list.php" class="button">취소</a>
         <input type="submit" value="수정">
     </form>
     </div>
